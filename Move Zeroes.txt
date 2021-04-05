@@ -1,0 +1,19 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        //Go through array, and keep track of index where a non zero element will be placed.
+        int index =0;
+        for (int i=0; i<nums.length; i++){
+            if (nums[i] != 0){              //If the number is not zero place it at the index.
+                nums[index] = nums[i];      //Once that index is filled, increment it.
+                index++;                    //Incrementing opens up another index.
+            }
+        }
+        //Once we have gone through the array once, all non-zero numbers are in order.
+        //We also have the index at a certain position.
+        //Fill the arraay from the index to the end of the array.
+        
+        for (int i=index; i<nums.length; i++){
+            nums[i] =  0;
+        }
+    }
+}

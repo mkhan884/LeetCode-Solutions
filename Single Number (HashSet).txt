@@ -1,0 +1,25 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        //If only one number exists in the array.
+        if (nums.length == 1){
+            return nums[0];
+        }
+        
+        HashSet <Integer> set = new HashSet <Integer> ();
+        
+        for (int i=0; i<nums.length; i++){
+            if (!set.contains(nums[i])){
+                set.add(nums[i]);
+            }
+            else{
+                set.remove(nums[i]);
+            }
+        }
+        int ans =0;
+        Iterator <Integer> j = set.iterator();
+        while(j.hasNext()){
+            ans = j.next();
+        }
+        return ans;
+    }
+} 

@@ -1,0 +1,24 @@
+class Solution {
+    public int maxProfit(int[] nums) {
+        int profit =0;                      //Tracks how much profit we have made.
+        int min = Integer.MAX_VALUE;        //Keep track of the smallest value in the array.
+        
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] < min){
+                //Update the smallest value we have occurred.
+                min = nums[i];
+            }
+            else{               //If number encountered is not the smallest number in the array, check for profit.
+                int check = nums[i] - min;
+                if (check > profit){
+                    profit = check;
+                }
+            }
+        }
+        return profit;
+    }
+}
+
+//Check to see if the min is the lowest value we have seen.
+//If it is, update the min.
+//Otherwise check to see the profit we can make on that specific day
